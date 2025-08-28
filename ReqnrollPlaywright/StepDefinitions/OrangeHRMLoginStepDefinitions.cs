@@ -26,6 +26,7 @@ namespace ReqnrollPlaywright.StepDefinitions
             Assert.IsTrue(isDisplayed, "Login page is not displayed");
         }
 
+
         // ---------------- WHEN ----------------
         [When(@"I enter valid username and password")]
         public async Task WhenIEnterValidUsernameAndPassword()

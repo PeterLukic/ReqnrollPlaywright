@@ -129,7 +129,6 @@ Scenario: Successful login with valid credentials
 	Given I navigate to the OrangeHRM login page
 	When I enter valid username and password
 	And I click the login button
-
 	Then I should see the dashboard page
 
 #@login @negative
@@ -166,51 +165,51 @@ Scenario: Successful login with valid credentials
             return new global::Io.Cucumber.Messages.Types.GherkinDocument("Features/OrangeHRMLogin.feature", new global::Io.Cucumber.Messages.Types.Feature(new global::Io.Cucumber.Messages.Types.Location(1, new System.Nullable<long>(1)), new System.Collections.Generic.List<global::Io.Cucumber.Messages.Types.Tag>(new global::Io.Cucumber.Messages.Types.Tag[0]), "en-US", "Feature", "OrangeHRM Login", "As a user of OrangeHRM system\r\nI want to be able to login to the application\r\nSo " +
                         "that I can access the HR management features", new System.Collections.Generic.List<global::Io.Cucumber.Messages.Types.FeatureChild>(new global::Io.Cucumber.Messages.Types.FeatureChild[] {
                                 new global::Io.Cucumber.Messages.Types.FeatureChild(null, null, new global::Io.Cucumber.Messages.Types.Scenario(new global::Io.Cucumber.Messages.Types.Location(8, new System.Nullable<long>(1)), new System.Collections.Generic.List<global::Io.Cucumber.Messages.Types.Tag>(new global::Io.Cucumber.Messages.Types.Tag[] {
-                                                    new global::Io.Cucumber.Messages.Types.Tag(new global::Io.Cucumber.Messages.Types.Location(7, new System.Nullable<long>(1)), "@login", "5e5544d75df37e5f9f7654f75a7950c9"),
-                                                    new global::Io.Cucumber.Messages.Types.Tag(new global::Io.Cucumber.Messages.Types.Location(7, new System.Nullable<long>(8)), "@smoke", "83be5ebe0ce92455a2a404a05c178af8")}), "Scenario", "Successful login with valid credentials", "", new System.Collections.Generic.List<global::Io.Cucumber.Messages.Types.Step>(new global::Io.Cucumber.Messages.Types.Step[] {
-                                                    new global::Io.Cucumber.Messages.Types.Step(new global::Io.Cucumber.Messages.Types.Location(9, new System.Nullable<long>(2)), "Given ", global::Io.Cucumber.Messages.Types.StepKeywordType.CONTEXT, "I navigate to the OrangeHRM login page", null, null, "0e8a4eb2fd6fd857a6c74fab83a739ac"),
-                                                    new global::Io.Cucumber.Messages.Types.Step(new global::Io.Cucumber.Messages.Types.Location(10, new System.Nullable<long>(2)), "When ", global::Io.Cucumber.Messages.Types.StepKeywordType.ACTION, "I enter valid username and password", null, null, "f4d12cbf27352f57b7221d144ad1f090"),
-                                                    new global::Io.Cucumber.Messages.Types.Step(new global::Io.Cucumber.Messages.Types.Location(11, new System.Nullable<long>(2)), "And ", global::Io.Cucumber.Messages.Types.StepKeywordType.CONJUNCTION, "I click the login button", null, null, "0c8934783dbf7a56a5724c520a3d1002"),
-                                                    new global::Io.Cucumber.Messages.Types.Step(new global::Io.Cucumber.Messages.Types.Location(13, new System.Nullable<long>(2)), "Then ", global::Io.Cucumber.Messages.Types.StepKeywordType.OUTCOME, "I should see the dashboard page", null, null, "0487fc129b11a856b55f1d4f3f9ffe0a")}), new System.Collections.Generic.List<global::Io.Cucumber.Messages.Types.Examples>(new global::Io.Cucumber.Messages.Types.Examples[0]), "4aa57f9a6172ae5a80463d7a201b8a03"))})), new System.Collections.Generic.List<global::Io.Cucumber.Messages.Types.Comment>(new global::Io.Cucumber.Messages.Types.Comment[] {
-                            new global::Io.Cucumber.Messages.Types.Comment(new global::Io.Cucumber.Messages.Types.Location(15, new System.Nullable<long>(1)), "#@login @negative"),
-                            new global::Io.Cucumber.Messages.Types.Comment(new global::Io.Cucumber.Messages.Types.Location(16, new System.Nullable<long>(1)), "#Scenario: Login with invalid credentials"),
-                            new global::Io.Cucumber.Messages.Types.Comment(new global::Io.Cucumber.Messages.Types.Location(17, new System.Nullable<long>(1)), "\t#Given I am on the OrangeHRM login page"),
-                            new global::Io.Cucumber.Messages.Types.Comment(new global::Io.Cucumber.Messages.Types.Location(18, new System.Nullable<long>(1)), "\t#When I enter invalid username \"InvalidUser\" and password \"InvalidPass\""),
-                            new global::Io.Cucumber.Messages.Types.Comment(new global::Io.Cucumber.Messages.Types.Location(19, new System.Nullable<long>(1)), "\t#And I click the login button"),
-                            new global::Io.Cucumber.Messages.Types.Comment(new global::Io.Cucumber.Messages.Types.Location(20, new System.Nullable<long>(1)), "\t#Then I should see an error message"),
-                            new global::Io.Cucumber.Messages.Types.Comment(new global::Io.Cucumber.Messages.Types.Location(23, new System.Nullable<long>(1)), "#@login @negative1"),
-                            new global::Io.Cucumber.Messages.Types.Comment(new global::Io.Cucumber.Messages.Types.Location(24, new System.Nullable<long>(1)), "#Scenario: Login with empty credentials"),
-                            new global::Io.Cucumber.Messages.Types.Comment(new global::Io.Cucumber.Messages.Types.Location(25, new System.Nullable<long>(1)), "\t#Given I am on the OrangeHRM login page"),
-                            new global::Io.Cucumber.Messages.Types.Comment(new global::Io.Cucumber.Messages.Types.Location(26, new System.Nullable<long>(1)), "\t#When I leave username and password fields empty"),
-                            new global::Io.Cucumber.Messages.Types.Comment(new global::Io.Cucumber.Messages.Types.Location(27, new System.Nullable<long>(1)), "\t#And I click the login button"),
-                            new global::Io.Cucumber.Messages.Types.Comment(new global::Io.Cucumber.Messages.Types.Location(28, new System.Nullable<long>(1)), "\t#Then I should see validation errors for username and password fields"),
-                            new global::Io.Cucumber.Messages.Types.Comment(new global::Io.Cucumber.Messages.Types.Location(31, new System.Nullable<long>(1)), "#@login @logintable"),
-                            new global::Io.Cucumber.Messages.Types.Comment(new global::Io.Cucumber.Messages.Types.Location(32, new System.Nullable<long>(1)), "#Scenario Outline: Login with different credential combinations"),
-                            new global::Io.Cucumber.Messages.Types.Comment(new global::Io.Cucumber.Messages.Types.Location(33, new System.Nullable<long>(1)), "\t#Given I am on the OrangeHRM login page"),
-                            new global::Io.Cucumber.Messages.Types.Comment(new global::Io.Cucumber.Messages.Types.Location(34, new System.Nullable<long>(1)), "\t#When I enter username \"<username>\" and password \"<password>\""),
-                            new global::Io.Cucumber.Messages.Types.Comment(new global::Io.Cucumber.Messages.Types.Location(35, new System.Nullable<long>(1)), "\t#And I click the login button"),
-                            new global::Io.Cucumber.Messages.Types.Comment(new global::Io.Cucumber.Messages.Types.Location(36, new System.Nullable<long>(1)), "\t#Then the login result should be \"<result>\""),
-                            new global::Io.Cucumber.Messages.Types.Comment(new global::Io.Cucumber.Messages.Types.Location(38, new System.Nullable<long>(1)), "\t#Examples:"),
-                            new global::Io.Cucumber.Messages.Types.Comment(new global::Io.Cucumber.Messages.Types.Location(39, new System.Nullable<long>(1)), "\t\t#| username | password  | result  |"),
-                            new global::Io.Cucumber.Messages.Types.Comment(new global::Io.Cucumber.Messages.Types.Location(40, new System.Nullable<long>(1)), "\t\t#| Admin    | admin123  | success |"),
-                            new global::Io.Cucumber.Messages.Types.Comment(new global::Io.Cucumber.Messages.Types.Location(41, new System.Nullable<long>(1)), "\t\t#| admin    | adminAAA  | failure |  ")}));
+                                                    new global::Io.Cucumber.Messages.Types.Tag(new global::Io.Cucumber.Messages.Types.Location(7, new System.Nullable<long>(1)), "@login", "c63abbddcf23e55fb6854d1d834f685b"),
+                                                    new global::Io.Cucumber.Messages.Types.Tag(new global::Io.Cucumber.Messages.Types.Location(7, new System.Nullable<long>(8)), "@smoke", "dbe3d43beb322f58af32802b5424927c")}), "Scenario", "Successful login with valid credentials", "", new System.Collections.Generic.List<global::Io.Cucumber.Messages.Types.Step>(new global::Io.Cucumber.Messages.Types.Step[] {
+                                                    new global::Io.Cucumber.Messages.Types.Step(new global::Io.Cucumber.Messages.Types.Location(9, new System.Nullable<long>(2)), "Given ", global::Io.Cucumber.Messages.Types.StepKeywordType.CONTEXT, "I navigate to the OrangeHRM login page", null, null, "941b4368c2888b55b165b57bc3038444"),
+                                                    new global::Io.Cucumber.Messages.Types.Step(new global::Io.Cucumber.Messages.Types.Location(10, new System.Nullable<long>(2)), "When ", global::Io.Cucumber.Messages.Types.StepKeywordType.ACTION, "I enter valid username and password", null, null, "66e9a84a508ad65790b3c56a8cfdb304"),
+                                                    new global::Io.Cucumber.Messages.Types.Step(new global::Io.Cucumber.Messages.Types.Location(11, new System.Nullable<long>(2)), "And ", global::Io.Cucumber.Messages.Types.StepKeywordType.CONJUNCTION, "I click the login button", null, null, "b8fd914719b0d1558e074e478d24dee3"),
+                                                    new global::Io.Cucumber.Messages.Types.Step(new global::Io.Cucumber.Messages.Types.Location(12, new System.Nullable<long>(2)), "Then ", global::Io.Cucumber.Messages.Types.StepKeywordType.OUTCOME, "I should see the dashboard page", null, null, "b5d199a6783eb95691e51c537180066a")}), new System.Collections.Generic.List<global::Io.Cucumber.Messages.Types.Examples>(new global::Io.Cucumber.Messages.Types.Examples[0]), "931f8bac61955b51b6e66e2c862c50dc"))})), new System.Collections.Generic.List<global::Io.Cucumber.Messages.Types.Comment>(new global::Io.Cucumber.Messages.Types.Comment[] {
+                            new global::Io.Cucumber.Messages.Types.Comment(new global::Io.Cucumber.Messages.Types.Location(14, new System.Nullable<long>(1)), "#@login @negative"),
+                            new global::Io.Cucumber.Messages.Types.Comment(new global::Io.Cucumber.Messages.Types.Location(15, new System.Nullable<long>(1)), "#Scenario: Login with invalid credentials"),
+                            new global::Io.Cucumber.Messages.Types.Comment(new global::Io.Cucumber.Messages.Types.Location(16, new System.Nullable<long>(1)), "\t#Given I am on the OrangeHRM login page"),
+                            new global::Io.Cucumber.Messages.Types.Comment(new global::Io.Cucumber.Messages.Types.Location(17, new System.Nullable<long>(1)), "\t#When I enter invalid username \"InvalidUser\" and password \"InvalidPass\""),
+                            new global::Io.Cucumber.Messages.Types.Comment(new global::Io.Cucumber.Messages.Types.Location(18, new System.Nullable<long>(1)), "\t#And I click the login button"),
+                            new global::Io.Cucumber.Messages.Types.Comment(new global::Io.Cucumber.Messages.Types.Location(19, new System.Nullable<long>(1)), "\t#Then I should see an error message"),
+                            new global::Io.Cucumber.Messages.Types.Comment(new global::Io.Cucumber.Messages.Types.Location(22, new System.Nullable<long>(1)), "#@login @negative1"),
+                            new global::Io.Cucumber.Messages.Types.Comment(new global::Io.Cucumber.Messages.Types.Location(23, new System.Nullable<long>(1)), "#Scenario: Login with empty credentials"),
+                            new global::Io.Cucumber.Messages.Types.Comment(new global::Io.Cucumber.Messages.Types.Location(24, new System.Nullable<long>(1)), "\t#Given I am on the OrangeHRM login page"),
+                            new global::Io.Cucumber.Messages.Types.Comment(new global::Io.Cucumber.Messages.Types.Location(25, new System.Nullable<long>(1)), "\t#When I leave username and password fields empty"),
+                            new global::Io.Cucumber.Messages.Types.Comment(new global::Io.Cucumber.Messages.Types.Location(26, new System.Nullable<long>(1)), "\t#And I click the login button"),
+                            new global::Io.Cucumber.Messages.Types.Comment(new global::Io.Cucumber.Messages.Types.Location(27, new System.Nullable<long>(1)), "\t#Then I should see validation errors for username and password fields"),
+                            new global::Io.Cucumber.Messages.Types.Comment(new global::Io.Cucumber.Messages.Types.Location(30, new System.Nullable<long>(1)), "#@login @logintable"),
+                            new global::Io.Cucumber.Messages.Types.Comment(new global::Io.Cucumber.Messages.Types.Location(31, new System.Nullable<long>(1)), "#Scenario Outline: Login with different credential combinations"),
+                            new global::Io.Cucumber.Messages.Types.Comment(new global::Io.Cucumber.Messages.Types.Location(32, new System.Nullable<long>(1)), "\t#Given I am on the OrangeHRM login page"),
+                            new global::Io.Cucumber.Messages.Types.Comment(new global::Io.Cucumber.Messages.Types.Location(33, new System.Nullable<long>(1)), "\t#When I enter username \"<username>\" and password \"<password>\""),
+                            new global::Io.Cucumber.Messages.Types.Comment(new global::Io.Cucumber.Messages.Types.Location(34, new System.Nullable<long>(1)), "\t#And I click the login button"),
+                            new global::Io.Cucumber.Messages.Types.Comment(new global::Io.Cucumber.Messages.Types.Location(35, new System.Nullable<long>(1)), "\t#Then the login result should be \"<result>\""),
+                            new global::Io.Cucumber.Messages.Types.Comment(new global::Io.Cucumber.Messages.Types.Location(37, new System.Nullable<long>(1)), "\t#Examples:"),
+                            new global::Io.Cucumber.Messages.Types.Comment(new global::Io.Cucumber.Messages.Types.Location(38, new System.Nullable<long>(1)), "\t\t#| username | password  | result  |"),
+                            new global::Io.Cucumber.Messages.Types.Comment(new global::Io.Cucumber.Messages.Types.Location(39, new System.Nullable<long>(1)), "\t\t#| Admin    | admin123  | success |"),
+                            new global::Io.Cucumber.Messages.Types.Comment(new global::Io.Cucumber.Messages.Types.Location(40, new System.Nullable<long>(1)), "\t\t#| admin    | adminAAA  | failure |  ")}));
         }
         
         private static global::System.Collections.Generic.IEnumerable<Io.Cucumber.Messages.Types.Pickle> PicklesFunc()
         {
             return new System.Collections.Generic.List<global::Io.Cucumber.Messages.Types.Pickle>(new global::Io.Cucumber.Messages.Types.Pickle[] {
-                        new global::Io.Cucumber.Messages.Types.Pickle("e1261c65a594c2528db13c7a22a2d2af", "Features/OrangeHRMLogin.feature", "Successful login with valid credentials", "en-US", new System.Collections.Generic.List<global::Io.Cucumber.Messages.Types.PickleStep>(new global::Io.Cucumber.Messages.Types.PickleStep[] {
+                        new global::Io.Cucumber.Messages.Types.Pickle("5edb93d7b07daa588ad0c3ca7325bb60", "Features/OrangeHRMLogin.feature", "Successful login with valid credentials", "en-US", new System.Collections.Generic.List<global::Io.Cucumber.Messages.Types.PickleStep>(new global::Io.Cucumber.Messages.Types.PickleStep[] {
                                         new global::Io.Cucumber.Messages.Types.PickleStep(null, new System.Collections.Generic.List<string>(new string[] {
-                                                        "0e8a4eb2fd6fd857a6c74fab83a739ac"}), "6f15fce589f11e51aec38eda6b368e61", global::Io.Cucumber.Messages.Types.PickleStepType.CONTEXT, "I navigate to the OrangeHRM login page"),
+                                                        "941b4368c2888b55b165b57bc3038444"}), "e9ccd4af2583625da43e1166f3dc9dda", global::Io.Cucumber.Messages.Types.PickleStepType.CONTEXT, "I navigate to the OrangeHRM login page"),
                                         new global::Io.Cucumber.Messages.Types.PickleStep(null, new System.Collections.Generic.List<string>(new string[] {
-                                                        "f4d12cbf27352f57b7221d144ad1f090"}), "8094c83140c14750a8a3e432ac7c5ace", global::Io.Cucumber.Messages.Types.PickleStepType.ACTION, "I enter valid username and password"),
+                                                        "66e9a84a508ad65790b3c56a8cfdb304"}), "09a74f828f6e875e8bc8a38e9e205558", global::Io.Cucumber.Messages.Types.PickleStepType.ACTION, "I enter valid username and password"),
                                         new global::Io.Cucumber.Messages.Types.PickleStep(null, new System.Collections.Generic.List<string>(new string[] {
-                                                        "0c8934783dbf7a56a5724c520a3d1002"}), "439d5e6e2b8005599430930fbeb1339f", global::Io.Cucumber.Messages.Types.PickleStepType.ACTION, "I click the login button"),
+                                                        "b8fd914719b0d1558e074e478d24dee3"}), "797d308b0f2f8e55b8b946e9750c878d", global::Io.Cucumber.Messages.Types.PickleStepType.ACTION, "I click the login button"),
                                         new global::Io.Cucumber.Messages.Types.PickleStep(null, new System.Collections.Generic.List<string>(new string[] {
-                                                        "0487fc129b11a856b55f1d4f3f9ffe0a"}), "56ad3cf30e680355bca53cc2635c27ef", global::Io.Cucumber.Messages.Types.PickleStepType.OUTCOME, "I should see the dashboard page")}), new System.Collections.Generic.List<global::Io.Cucumber.Messages.Types.PickleTag>(new global::Io.Cucumber.Messages.Types.PickleTag[] {
-                                        new global::Io.Cucumber.Messages.Types.PickleTag("@login", "5e5544d75df37e5f9f7654f75a7950c9"),
-                                        new global::Io.Cucumber.Messages.Types.PickleTag("@smoke", "83be5ebe0ce92455a2a404a05c178af8")}), new System.Collections.Generic.List<string>(new string[] {
-                                        "4aa57f9a6172ae5a80463d7a201b8a03"}))});
+                                                        "b5d199a6783eb95691e51c537180066a"}), "49124231c05c9959847f557babb1f95c", global::Io.Cucumber.Messages.Types.PickleStepType.OUTCOME, "I should see the dashboard page")}), new System.Collections.Generic.List<global::Io.Cucumber.Messages.Types.PickleTag>(new global::Io.Cucumber.Messages.Types.PickleTag[] {
+                                        new global::Io.Cucumber.Messages.Types.PickleTag("@login", "c63abbddcf23e55fb6854d1d834f685b"),
+                                        new global::Io.Cucumber.Messages.Types.PickleTag("@smoke", "dbe3d43beb322f58af32802b5424927c")}), new System.Collections.Generic.List<string>(new string[] {
+                                        "931f8bac61955b51b6e66e2c862c50dc"}))});
         }
         
         private static global::Reqnroll.Formatters.RuntimeSupport.FeatureLevelCucumberMessages InitializeCucumberMessages()
@@ -252,7 +251,7 @@ this.ScenarioInitialize(scenarioInfo, ruleInfo);
 #line 11
  await testRunner.AndAsync("I click the login button", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
 #line hidden
-#line 13
+#line 12
  await testRunner.ThenAsync("I should see the dashboard page", ((string)(null)), ((global::Reqnroll.Table)(null)), "Then ");
 #line hidden
             }

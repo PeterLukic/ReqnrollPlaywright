@@ -44,6 +44,7 @@
 	</ItemGroup>
 	<ItemGroup>
 	  <ReqnrollFeatureFiles Remove="Features\OrangeLogin.feature" />
+	  <ReqnrollFeatureFiles Remove="Features\Test1.feature" />
 	</ItemGroup>
 
 </Project>
