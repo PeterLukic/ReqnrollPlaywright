@@ -29,8 +29,8 @@ namespace ReqnrollPlaywright.Features
         
         private static string[] featureTags = ((string[])(null));
         
-        private static global::Reqnroll.FeatureInfo featureInfo = new global::Reqnroll.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "Features", "OrangeHRM Login", "As a user of OrangeHRM system\r\nI want to be able to login to the application\r\nSo " +
-                "that I can access the HR management features", global::Reqnroll.ProgrammingLanguage.CSharp, featureTags);
+        private static global::Reqnroll.FeatureInfo featureInfo = new global::Reqnroll.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "Features", "OrangeHRM Login", ("As a user of OrangeHRM system\r\nI want to be able to login to the application\r\nSo " +
+                "that I can access the HR management features"), global::Reqnroll.ProgrammingLanguage.CSharp, featureTags);
         
 #line 1 "OrangeHRMLogin.feature"
 #line hidden
@@ -126,6 +126,9 @@ this.ScenarioInitialize(scenarioInfo);
 #line 11
  await testRunner.AndAsync("I click the login button", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
 #line hidden
+#line 12
+ await testRunner.ThenAsync("I should see the dashboard page", ((string)(null)), ((global::Reqnroll.Table)(null)), "Then ");
+#line hidden
             }
             await this.ScenarioCleanupAsync();
         }
@@ -142,7 +145,7 @@ this.ScenarioInitialize(scenarioInfo);
                     "negative"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             global::Reqnroll.ScenarioInfo scenarioInfo = new global::Reqnroll.ScenarioInfo("Login with invalid credentials", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 15
+#line 16
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((global::Reqnroll.TagHelper.ContainsIgnoreTag(scenarioInfo.CombinedTags) || global::Reqnroll.TagHelper.ContainsIgnoreTag(featureTags)))
@@ -152,103 +155,17 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 await this.ScenarioStartAsync();
-#line 16
- await testRunner.GivenAsync("I am on the OrangeHRM login page", ((string)(null)), ((global::Reqnroll.Table)(null)), "Given ");
-#line hidden
 #line 17
- await testRunner.WhenAsync("I enter invalid username \"InvalidUser\" and password \"InvalidPass\"", ((string)(null)), ((global::Reqnroll.Table)(null)), "When ");
+ await testRunner.GivenAsync("I am on the OrangeHRM login page", ((string)(null)), ((global::Reqnroll.Table)(null)), "Given ");
 #line hidden
 #line 18
- await testRunner.AndAsync("I click the login button", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
+ await testRunner.WhenAsync("I enter invalid username \"InvalidUser\" and password \"InvalidPass\"", ((string)(null)), ((global::Reqnroll.Table)(null)), "When ");
 #line hidden
 #line 19
+ await testRunner.AndAsync("I click the login button", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
+#line hidden
+#line 20
  await testRunner.ThenAsync("I should see an error message", ((string)(null)), ((global::Reqnroll.Table)(null)), "Then ");
-#line hidden
-            }
-            await this.ScenarioCleanupAsync();
-        }
-        
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Login with empty credentials")]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "OrangeHRM Login")]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("login")]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("negative1")]
-        public async System.Threading.Tasks.Task LoginWithEmptyCredentials()
-        {
-            string[] tagsOfScenario = new string[] {
-                    "login",
-                    "negative1"};
-            System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
-            global::Reqnroll.ScenarioInfo scenarioInfo = new global::Reqnroll.ScenarioInfo("Login with empty credentials", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 22
-this.ScenarioInitialize(scenarioInfo);
-#line hidden
-            if ((global::Reqnroll.TagHelper.ContainsIgnoreTag(scenarioInfo.CombinedTags) || global::Reqnroll.TagHelper.ContainsIgnoreTag(featureTags)))
-            {
-                testRunner.SkipScenario();
-            }
-            else
-            {
-                await this.ScenarioStartAsync();
-#line 23
- await testRunner.GivenAsync("I am on the OrangeHRM login page", ((string)(null)), ((global::Reqnroll.Table)(null)), "Given ");
-#line hidden
-#line 24
- await testRunner.WhenAsync("I leave username and password fields empty", ((string)(null)), ((global::Reqnroll.Table)(null)), "When ");
-#line hidden
-#line 25
- await testRunner.AndAsync("I click the login button", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
-#line hidden
-#line 26
- await testRunner.ThenAsync("I should see validation errors for username and password fields", ((string)(null)), ((global::Reqnroll.Table)(null)), "Then ");
-#line hidden
-            }
-            await this.ScenarioCleanupAsync();
-        }
-        
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Login with different credential combinations")]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "OrangeHRM Login")]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("login")]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("logintable")]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.DataRowAttribute("Admin", "admin123", "success", null)]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.DataRowAttribute("admin", "adminAAA", "failure", null)]
-        public async System.Threading.Tasks.Task LoginWithDifferentCredentialCombinations(string username, string password, string result, string[] exampleTags)
-        {
-            string[] @__tags = new string[] {
-                    "login",
-                    "logintable"};
-            if ((exampleTags != null))
-            {
-                @__tags = System.Linq.Enumerable.ToArray(System.Linq.Enumerable.Concat(@__tags, exampleTags));
-            }
-            string[] tagsOfScenario = @__tags;
-            System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
-            argumentsOfScenario.Add("username", username);
-            argumentsOfScenario.Add("password", password);
-            argumentsOfScenario.Add("result", result);
-            global::Reqnroll.ScenarioInfo scenarioInfo = new global::Reqnroll.ScenarioInfo("Login with different credential combinations", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 29
-this.ScenarioInitialize(scenarioInfo);
-#line hidden
-            if ((global::Reqnroll.TagHelper.ContainsIgnoreTag(scenarioInfo.CombinedTags) || global::Reqnroll.TagHelper.ContainsIgnoreTag(featureTags)))
-            {
-                testRunner.SkipScenario();
-            }
-            else
-            {
-                await this.ScenarioStartAsync();
-#line 30
- await testRunner.GivenAsync("I am on the OrangeHRM login page", ((string)(null)), ((global::Reqnroll.Table)(null)), "Given ");
-#line hidden
-#line 31
- await testRunner.WhenAsync(string.Format("I enter username \"{0}\" and password \"{1}\"", username, password), ((string)(null)), ((global::Reqnroll.Table)(null)), "When ");
-#line hidden
-#line 32
- await testRunner.AndAsync("I click the login button", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
-#line hidden
-#line 33
- await testRunner.ThenAsync(string.Format("the login result should be \"{0}\"", result), ((string)(null)), ((global::Reqnroll.Table)(null)), "Then ");
 #line hidden
             }
             await this.ScenarioCleanupAsync();

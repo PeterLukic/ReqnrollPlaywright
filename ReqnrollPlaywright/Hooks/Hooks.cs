@@ -1,6 +1,7 @@
 using Allure.Net.Commons;
 using Microsoft.Playwright;
 using ReqnrollPlaywright.Drivers;
+using Reqnroll;
 
 namespace ReqnrollPlaywright.Hooks
 {
