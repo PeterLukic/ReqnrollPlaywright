@@ -11,8 +11,11 @@ namespace ReqnrollPlaywright.PageObjects
         private readonly string _loginButton = "button[type='submit']";
         private readonly string _loginForm = "form";
         private readonly string _errorMessage = ".oxd-alert-content";
+        //private readonly string _errorUserNameMessage = "body > div:nth-child(3) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(3) > form:nth-child(2) > div:nth-child(2) > div:nth-child(1) > span:nth-child(3)";
+        //private readonly string _errorPasswordMessage = "body > div:nth-child(3) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(3) > form:nth-child(2) > div:nth-child(3) > div:nth-child(1) > span:nth-child(3)";
+        private readonly string _errorUserNameMessage = "//input[@name='username']/ancestor::div[contains(@class,'oxd-input-group')]//span[contains(@class,'oxd-input-field-error-message')]";
+        private readonly string _errorPasswordMessage = "//input[@name='password']/ancestor::div[contains(@class,'oxd-input-group')]//span[contains(@class,'oxd-input-field-error-message')]";
         private readonly string _forgotPasswordLink = "a[href*='forgot-password']";
-        private readonly string _pageTitle = "h5";
 
         public LoginPage(IPage page) : base(page)
         {
@@ -60,25 +63,50 @@ namespace ReqnrollPlaywright.PageObjects
             await TestHelper.WaitForPageLoadAsync(_page);
         }
 
-        public async Task LoginAsync(string username, string password)
+        public async Task InseretCredentialsAsync(string username, string password)
         {
             await EnterUsernameAsync(username);
             await EnterPasswordAsync(password);
-            //await ClickLoginButtonAsync();
+
         }
 
         public async Task LoginWithDefaultCredentialsAsync()
         {
             var username = ConfigurationManager.GetUsername();
             var password = ConfigurationManager.GetPassword();
-            await LoginAsync(username, password);
+            await InseretCredentialsAsync(username, password);
         }
 
+        //error message handling
         public async Task<bool> IsErrorMessageDisplayedAsync()
         {
             try
             {
                 return await IsVisibleAsync(_errorMessage);
+            }
+            catch
+            {
+                return false;
+            }
+        }
+
+        public async Task<bool> IsErrorMessageUserNameDisplayedAsync()
+        {
+            try
+            {
+                return await IsVisibleAsync(_errorUserNameMessage);
+            }
+            catch
+            {
+                return false;
+            }
+        }
+
+        public async Task<bool> IsErrorMessagePasswordDisplayedAsync()
+        {
+            try
+            {
+                return await IsVisibleAsync(_errorPasswordMessage);
             }
             catch
             {

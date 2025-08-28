@@ -43,19 +43,19 @@ namespace ReqnrollPlaywright.StepDefinitions
         [When(@"I enter invalid username ""([^""]*)"" and password ""([^""]*)""")]
         public async Task WhenIEnterInvalidUsernameAndPassword(string username, string password)
         {
-            await _loginPage.LoginAsync(username, password);
+            await _loginPage.InseretCredentialsAsync(username, password);
         }
 
         [When(@"I leave username and password fields empty")]
         public async Task WhenILeaveUsernameAndPasswordFieldsEmpty()
         {
-            await _loginPage.LoginAsync("", "");
+            await _loginPage.InseretCredentialsAsync("", "");
         }
 
         [When(@"I enter username ""([^""]*)"" and password ""([^""]*)""")]
         public async Task WhenIEnterUsernameAndPassword(string username, string password)
         {
-            await _loginPage.LoginAsync(username, password);
+            await _loginPage.InseretCredentialsAsync(username, password);
         }
 
         [When(@"I click the login button")]
@@ -86,6 +86,17 @@ namespace ReqnrollPlaywright.StepDefinitions
             var isErrorVisible = await _loginPage.IsErrorMessageDisplayedAsync();
             Assert.IsTrue(isErrorVisible, "Validation errors not displayed for empty credentials");
         }
+
+        [Then("I should see validation errors for username and password fields")]
+        public async Task ThenIShouldSeeValidationErrorsForUsernameAndPasswordFields()
+        {
+            var isErrorUserNameVisible = await _loginPage.IsErrorMessageUserNameDisplayedAsync();
+            Assert.IsTrue(isErrorUserNameVisible, "Validation errors not displayed for username");
+
+            var isErrorUserPassordVisible = await _loginPage.IsErrorMessagePasswordDisplayedAsync();
+            Assert.IsTrue(isErrorUserPassordVisible, "Validation errors not displayed for username");
+        }
+
 
         [Then(@"the login result should be ""([^""]*)""")]
         public async Task ThenTheLoginResultShouldBe(string expectedResult)
