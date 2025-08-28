@@ -10,9 +10,7 @@ namespace ReqnrollPlaywright.PageObjects
         private readonly string _passwordInput = "input[name='password']";
         private readonly string _loginButton = "button[type='submit']";
         private readonly string _loginForm = "form";
-        private readonly string _errorMessage = ".oxd-alert-content";
-        //private readonly string _errorUserNameMessage = "body > div:nth-child(3) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(3) > form:nth-child(2) > div:nth-child(2) > div:nth-child(1) > span:nth-child(3)";
-        //private readonly string _errorPasswordMessage = "body > div:nth-child(3) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(3) > form:nth-child(2) > div:nth-child(3) > div:nth-child(1) > span:nth-child(3)";
+        private readonly string _errorMessage = ".oxd-text.oxd-text--p.oxd-alert-content-text";
         private readonly string _errorUserNameMessage = "//input[@name='username']/ancestor::div[contains(@class,'oxd-input-group')]//span[contains(@class,'oxd-input-field-error-message')]";
         private readonly string _errorPasswordMessage = "//input[@name='password']/ancestor::div[contains(@class,'oxd-input-group')]//span[contains(@class,'oxd-input-field-error-message')]";
         private readonly string _forgotPasswordLink = "a[href*='forgot-password']";
@@ -80,6 +78,7 @@ namespace ReqnrollPlaywright.PageObjects
         //error message handling
         public async Task<bool> IsErrorMessageDisplayedAsync()
         {
+       
             try
             {
                 return await IsVisibleAsync(_errorMessage);
@@ -94,6 +93,7 @@ namespace ReqnrollPlaywright.PageObjects
         {
             try
             {
+                await WaitForSelectorAsync(_errorUserNameMessage);
                 return await IsVisibleAsync(_errorUserNameMessage);
             }
             catch

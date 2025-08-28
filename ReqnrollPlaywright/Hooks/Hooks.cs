@@ -1,7 +1,6 @@
-
 using Microsoft.Playwright;
 using ReqnrollPlaywright.Drivers;
-[assembly: Parallelize(Scope = ExecutionScope.ClassLevel)]
+[assembly: Parallelize(Workers = 3, Scope = ExecutionScope.MethodLevel)]
 
 namespace ReqnrollPlaywright.Hooks
 {
