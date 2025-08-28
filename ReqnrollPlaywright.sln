@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.14.36414.22 d17.14
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReqnrollPlaywright", "ReqnrollPlaywright\ReqnrollPlaywright.csproj", "{95D2FC9C-B62B-4281-B308-B93AF138075B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{95D2FC9C-B62B-4281-B308-B93AF138075B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{95D2FC9C-B62B-4281-B308-B93AF138075B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{95D2FC9C-B62B-4281-B308-B93AF138075B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{95D2FC9C-B62B-4281-B308-B93AF138075B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {D27DB7C1-840A-49C3-B76B-AA795A1B8771}
+	EndGlobalSection
+EndGlobal
