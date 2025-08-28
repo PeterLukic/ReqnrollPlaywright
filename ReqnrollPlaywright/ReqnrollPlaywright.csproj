@@ -28,22 +28,23 @@
   </ItemGroup>
 
   <ItemGroup>
-
 	  <Folder Include="Drivers\" />
   </ItemGroup>
 
-	<ItemGroup>
-		<None Update="Utils\appsettings.json">
-			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-		</None>
+  <ItemGroup>
+	<None Update="Utils\appsettings.json">
+		<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	</None>
+  </ItemGroup>
+  
+   <ItemGroup>
+	  <None Update="Features\*.feature">
+		<CopyToOutputDirectory>Always</CopyToOutputDirectory>
+	  </None>
 	</ItemGroup>
-	<ItemGroup>
-		<None Update="Features\*.feature">
-			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
-		</None>
-	</ItemGroup>
-	<ItemGroup>
-		<Content Remove="C:\Users\Korisnik\.nuget\packages\allure.reqnroll\2.12.1\contentFiles\any\netstandard2.0\allureConfig.Template.json" />
-	</ItemGroup>
+	
+   <ItemGroup>
+	   <Content Remove="C:\Users\Korisnik\.nuget\packages\allure.reqnroll\2.12.1\contentFiles\any\netstandard2.0\allureConfig.Template.json" />
+   </ItemGroup>
 
 </Project>
