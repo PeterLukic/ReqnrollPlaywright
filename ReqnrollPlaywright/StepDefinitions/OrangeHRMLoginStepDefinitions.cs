@@ -1,7 +1,5 @@
-using Allure.Net.Commons;
 using ReqnrollPlaywright.Drivers;
 using ReqnrollPlaywright.PageObjects;
-using Reqnroll;
 
 namespace ReqnrollPlaywright.StepDefinitions
 {
@@ -23,7 +21,6 @@ namespace ReqnrollPlaywright.StepDefinitions
         [Given(@"I am on the OrangeHRM login page")]
         public async Task GivenIAmOnTheOrangeHRMLoginPage()
         {
-            AllureApi.Step("I am on the OrangeHRM login page");
             await _loginPage.NavigateToLoginPageAsync();
             var isDisplayed = await _loginPage.IsLoginPageDisplayedAsync();
             Assert.IsTrue(isDisplayed, "Login page is not displayed");

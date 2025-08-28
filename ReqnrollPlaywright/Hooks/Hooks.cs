@@ -1,7 +1,6 @@
-using Allure.Net.Commons;
+
 using Microsoft.Playwright;
 using ReqnrollPlaywright.Drivers;
-using Reqnroll;
 
 namespace ReqnrollPlaywright.Hooks
 {
@@ -23,10 +22,6 @@ namespace ReqnrollPlaywright.Hooks
             await browserDriver.InitializeAsync();
             _page = browserDriver.Page;
             _scenarioContext["BrowserDriver"] = browserDriver;
-
-            // Add Allure labels
-            AllureApi.SetTestName(_scenarioContext.ScenarioInfo.Title);
-            AllureApi.SetOwner("Perica");
         }
 
         [AfterScenario]
@@ -36,7 +31,6 @@ namespace ReqnrollPlaywright.Hooks
             {
                 // Capture and attach screenshot on failure
                 var screenshotPath = await _page!.ScreenshotAsync(new PageScreenshotOptions { Path = "screenshot.png" });
-                AllureApi.AddAttachment("Screenshot", "image/png", screenshotPath);
             }
 
             // Dispose browser driver
