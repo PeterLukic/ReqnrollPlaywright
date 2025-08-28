@@ -11,18 +11,15 @@ namespace ReqnrollPlaywright.StepDefinitions
     {
         private readonly BrowserDriver _browserDriver;
         private readonly LoginPage _loginPage;
-        private readonly ScenarioContext _scenarioContext;
 
         public OrangeHRMLoginStepDefinitions(ScenarioContext scenarioContext)
         {
-            _scenarioContext = scenarioContext;
-            _browserDriver = new BrowserDriver();
-            _browserDriver.InitializeAsync().GetAwaiter().GetResult();
+            // Reuse browser created in Hooks
+            _browserDriver = scenarioContext.Get<BrowserDriver>("BrowserDriver");
             _loginPage = new LoginPage(_browserDriver.Page);
         }
 
         // ---------------- GIVEN ----------------
-
         [Given(@"I navigate to the OrangeHRM login page")]
         [Given(@"I am on the OrangeHRM login page")]
         public async Task GivenIAmOnTheOrangeHRMLoginPage()
@@ -33,7 +30,6 @@ namespace ReqnrollPlaywright.StepDefinitions
         }
 
         // ---------------- WHEN ----------------
-
         [When(@"I enter valid username and password")]
         public async Task WhenIEnterValidUsernameAndPassword()
         {
@@ -65,7 +61,6 @@ namespace ReqnrollPlaywright.StepDefinitions
         }
 
         // ---------------- THEN ----------------
-
         [Then(@"I should see the dashboard page")]
         public async Task ThenIShouldSeeTheDashboardPage()
         {
@@ -94,9 +89,8 @@ namespace ReqnrollPlaywright.StepDefinitions
             Assert.IsTrue(isErrorUserNameVisible, "Validation errors not displayed for username");
 
             var isErrorUserPassordVisible = await _loginPage.IsErrorMessagePasswordDisplayedAsync();
-            Assert.IsTrue(isErrorUserPassordVisible, "Validation errors not displayed for username");
+            Assert.IsTrue(isErrorUserPassordVisible, "Validation errors not displayed for password");
         }
-
 
         [Then(@"the login result should be ""([^""]*)""")]
         public async Task ThenTheLoginResultShouldBe(string expectedResult)
@@ -112,7 +106,5 @@ namespace ReqnrollPlaywright.StepDefinitions
                 Assert.IsTrue(isErrorVisible, "Login was expected to fail but succeeded");
             }
         }
-
- 
     }
 }

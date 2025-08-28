@@ -3,7 +3,7 @@ using ReqnrollPlaywright.Utils;
 
 namespace ReqnrollPlaywright.Drivers
 {
-    public class BrowserDriver : IDisposable
+    public class BrowserDriver : IAsyncDisposable
     {
         private IPlaywright? _playwright;
         private IBrowser? _browser;
@@ -67,23 +67,17 @@ namespace ReqnrollPlaywright.Drivers
             return await TestHelper.TakeScreenshotAsync(_page, testName);
         }
 
-        public void Dispose()
+        public async ValueTask DisposeAsync()
         {
-            Dispose(true);
-            GC.SuppressFinalize(this);
-        }
-
-        protected virtual void Dispose(bool disposing)
-        {
-            if (!_disposed && disposing)
+            if (!_disposed)
             {
                 try
                 {
                     TestHelper.LogInfo("Disposing browser driver");
-                    
-                    _page?.CloseAsync().GetAwaiter().GetResult();
-                    _context?.CloseAsync().GetAwaiter().GetResult();
-                    _browser?.CloseAsync().GetAwaiter().GetResult();
+
+                    if (_page != null) await _page.CloseAsync();
+                    if (_context != null) await _context.CloseAsync();
+                    if (_browser != null) await _browser.CloseAsync();
                     _playwright?.Dispose();
                 }
                 catch (Exception ex)
