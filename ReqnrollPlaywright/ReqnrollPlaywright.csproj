@@ -46,16 +46,5 @@
 	<ItemGroup>
 		<Content Remove="C:\Users\Korisnik\.nuget\packages\allure.reqnroll\2.12.1\contentFiles\any\netstandard2.0\allureConfig.Template.json" />
 	</ItemGroup>
-	<ItemGroup>
-		<Content Update="Features\OrangeHRMLogin.feature">
-			<CopyToOutputDirectory>Never</CopyToOutputDirectory>
-		</Content>
-		<Content Update="Features\OrangeLogin.feature">
-			<CopyToOutputDirectory>Never</CopyToOutputDirectory>
-		</Content>
-		<Content Update="Features\Test1.feature">
-			<CopyToOutputDirectory>Never</CopyToOutputDirectory>
-		</Content>
-	</ItemGroup>
 
 </Project>
