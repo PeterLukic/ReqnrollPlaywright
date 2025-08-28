@@ -1,7 +1,6 @@
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Allure.Net.Commons;
+using Microsoft.Playwright;
 using ReqnrollPlaywright.Drivers;
-using ReqnrollPlaywright.Utils;
-using Reqnroll;
 
 namespace ReqnrollPlaywright.Hooks
 {
@@ -9,6 +8,7 @@ namespace ReqnrollPlaywright.Hooks
     public class Hooks
     {
         private readonly ScenarioContext _scenarioContext;
+        private IPage? _page;
 
         public Hooks(ScenarioContext scenarioContext)
         {
@@ -18,31 +18,29 @@ namespace ReqnrollPlaywright.Hooks
         [BeforeScenario]
         public async Task BeforeScenario()
         {
-            // Only create browser if it doesn't exist in ScenarioContext
-            if (!_scenarioContext.TryGetValue("BrowserDriver", out BrowserDriver? browserDriver) || browserDriver == null)
-            {
-                browserDriver = new BrowserDriver();
-                await browserDriver.InitializeAsync();
-                _scenarioContext["BrowserDriver"] = browserDriver;
-            }
+            var browserDriver = new BrowserDriver();
+            await browserDriver.InitializeAsync();
+            _page = browserDriver.Page;
+            _scenarioContext["BrowserDriver"] = browserDriver;
+
+            // Add Allure labels
+            AllureApi.SetTestName(_scenarioContext.ScenarioInfo.Title);
+            AllureApi.SetOwner("Perica");
         }
 
         [AfterScenario]
         public async Task AfterScenario()
         {
-            if (_scenarioContext.TryGetValue("BrowserDriver", out BrowserDriver? browserDriver) && browserDriver != null)
+            if (_scenarioContext.TestError != null)
             {
-                // Take screenshot if scenario failed
-                if (_scenarioContext.TestError != null)
-                {
-                    var screenshotPath = await browserDriver.TakeScreenshotAsync(_scenarioContext.ScenarioInfo.Title);
-                    TestHelper.LogError($"Scenario failed: {_scenarioContext.ScenarioInfo.Title}. Screenshot saved at {screenshotPath}", _scenarioContext.TestError);
-                }
-                else
-                {
-                    TestHelper.LogInfo($"Scenario passed: {_scenarioContext.ScenarioInfo.Title}");
-                }
+                // Capture and attach screenshot on failure
+                var screenshotPath = await _page!.ScreenshotAsync(new PageScreenshotOptions { Path = "screenshot.png" });
+                AllureApi.AddAttachment("Screenshot", "image/png", screenshotPath);
+            }
 
+            // Dispose browser driver
+            if (_scenarioContext.TryGetValue("BrowserDriver", out BrowserDriver? browserDriver))
+            {
                 await browserDriver.DisposeAsync();
             }
         }

@@ -7,6 +7,15 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Reports\**" />
+    <EmbeddedResource Remove="Reports\**" />
+    <None Remove="Reports\**" />
+    <ReqnrollFeatureFiles Remove="Reports\**" />
+    <ReqnrollObsoleteCodeBehindFiles Remove="Reports\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Allure.Reqnroll" Version="2.12.1" />
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.10.0" />
     <PackageReference Include="Reqnroll.MsTest" Version="2.2.1" />
     <PackageReference Include="MSTest.TestAdapter" Version="3.4.3" />
@@ -21,13 +30,18 @@
   <ItemGroup>
     <Folder Include="Drivers\" />
     <Folder Include="PageObjects\" />
-    <Folder Include="Reports\" />
   </ItemGroup>
-
   <ItemGroup>
     <None Update="Utils\appsettings.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
   </ItemGroup>
-
+  <ItemGroup>
+	<None Update="reqnroll.json">
+		<CopyToOutputDirectory>Always</CopyToOutputDirectory>
+	</None>
+  </ItemGroup>
+	<ItemGroup>
+		<Content Include="Features\*.feature" />
+	</ItemGroup>
 </Project>
