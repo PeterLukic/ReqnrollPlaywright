@@ -2,5 +2,8 @@
     "$schema": "https://schemas.reqnroll.net/reqnroll-config-latest.json",
     "language": {
         "feature": "en-US"
+    },
+    "formatters": {
+        "html": { "outputFilePath": "Reports/OrangeReport.html" }
     }
 }

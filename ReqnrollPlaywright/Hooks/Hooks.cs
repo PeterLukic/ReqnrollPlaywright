@@ -36,7 +36,10 @@ namespace ReqnrollPlaywright.Hooks
             // Dispose browser driver
             if (_scenarioContext.TryGetValue("BrowserDriver", out BrowserDriver? browserDriver))
             {
-                await browserDriver.DisposeAsync();
+                if (browserDriver != null)
+                {
+                    await browserDriver.DisposeAsync();
+                }
             }
         }
     }
