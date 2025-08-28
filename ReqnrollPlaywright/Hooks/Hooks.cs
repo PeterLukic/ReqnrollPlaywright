@@ -30,8 +30,11 @@ namespace ReqnrollPlaywright.Hooks
             if (_scenarioContext.TestError != null)
             {
                 // Capture and attach screenshot on failure
+            
                 var screenshotPath = await _page!.ScreenshotAsync(new PageScreenshotOptions { Path = "screenshot.png" });
+
             }
+
 
             // Dispose browser driver
             if (_scenarioContext.TryGetValue("BrowserDriver", out BrowserDriver? browserDriver))

@@ -45,8 +45,38 @@ namespace ReqnrollPlaywright.Utils
         public static int GetSlowMo() => int.Parse(Configuration["TestSettings:SlowMo"] ?? "0");
         public static bool GetVideoRecord() => bool.Parse(Configuration["TestSettings:VideoRecord"] ?? "false");
         public static bool GetScreenshotOnFailure() => bool.Parse(Configuration["TestSettings:ScreenshotOnFailure"] ?? "true");
-        public static string GetReportPath() => Configuration["ReportSettings:ReportPath"] ?? "Reports";
+
+        // Updated to get project root path for reports
+        public static string GetReportPath()
+        {
+            var configPath = Configuration["ReportSettings:ReportPath"];
+            if (!string.IsNullOrEmpty(configPath))
+            {
+                return Path.IsPathRooted(configPath) ? configPath : GetProjectRootPath(configPath);
+            }
+            return GetProjectRootPath("TestResults");
+        }
+
         public static string GetReportName() => Configuration["ReportSettings:ReportName"] ?? "TestReport";
         public static bool GetGenerateHtmlReport() => bool.Parse(Configuration["ReportSettings:GenerateHtmlReport"] ?? "true");
+
+        // Helper method to get project root path
+        private static string GetProjectRootPath(string relativePath)
+        {
+            var currentDirectory = Directory.GetCurrentDirectory();
+
+            // If running from bin/Debug/net8.0, go up to project root
+            if (currentDirectory.Contains("bin"))
+            {
+                var projectRoot = Directory.GetParent(currentDirectory)?.Parent?.Parent?.FullName;
+                if (projectRoot != null)
+                {
+                    return Path.Combine(projectRoot, relativePath);
+                }
+            }
+
+            // Fallback to current directory + relative path
+            return Path.Combine(currentDirectory, relativePath);
+        }
     }
 }

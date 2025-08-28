@@ -4,6 +4,7 @@
         "feature": "en-US"
     },
     "formatters": {
-        "html": { "outputFilePath": "Reports/OrangeReport.html" }
+        "html": { "outputFilePath": "../../../TestResults/OrangeReport.html" },
+        "message": { "outputFilePath": "../../../TestResults/Messages.ndjson" }
     }
 }
