@@ -3,7 +3,7 @@ using ReqnrollPlaywright.Utils;
 
 namespace ReqnrollPlaywright.PageObjects
 {
-    public class LoginPage : BasePage
+    public class PageLogin : PageBase
     {
         // Selectors based on the provided HTML structure
         private readonly string _usernameInput = "input[name='username']";
@@ -15,7 +15,7 @@ namespace ReqnrollPlaywright.PageObjects
         private readonly string _errorPasswordMessage = "//input[@name='password']/ancestor::div[contains(@class,'oxd-input-group')]//span[contains(@class,'oxd-input-field-error-message')]";
         private readonly string _forgotPasswordLink = "a[href*='forgot-password']";
 
-        public LoginPage(IPage page) : base(page)
+        public PageLogin(IPage page) : base(page)
         {
         }
 
@@ -81,6 +81,7 @@ namespace ReqnrollPlaywright.PageObjects
        
             try
             {
+                await WaitForSelectorAsync(_errorMessage);
                 return await IsVisibleAsync(_errorMessage);
             }
             catch

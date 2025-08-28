@@ -3,12 +3,12 @@ using ReqnrollPlaywright.Utils;
 
 namespace ReqnrollPlaywright.PageObjects
 {
-    public abstract class BasePage
+    public abstract class PageBase
     {
         protected readonly IPage _page;
         protected readonly int _timeout;
 
-        protected BasePage(IPage page)
+        protected PageBase(IPage page)
         {
             _page = page;
             _timeout = ConfigurationManager.GetTimeout();
