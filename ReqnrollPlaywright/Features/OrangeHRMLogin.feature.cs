@@ -29,8 +29,8 @@ namespace ReqnrollPlaywright.Features
         
         private static string[] featureTags = ((string[])(null));
         
-        private static global::Reqnroll.FeatureInfo featureInfo = new global::Reqnroll.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "Features", "OrangeHRM Login", "As a user of OrangeHRM system\r\nI want to be able to login to the application\r\nSo " +
-                "that I can access the HR management features", global::Reqnroll.ProgrammingLanguage.CSharp, featureTags);
+        private static global::Reqnroll.FeatureInfo featureInfo = new global::Reqnroll.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "Features", "OrangeHRM Login", ("As a user of OrangeHRM system\r\nI want to be able to login to the application\r\nSo " +
+                "that I can access the HR management features"), global::Reqnroll.ProgrammingLanguage.CSharp, featureTags);
         
 #line 1 "OrangeHRMLogin.feature"
 #line hidden
