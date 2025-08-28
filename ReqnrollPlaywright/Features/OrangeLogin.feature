@@ -1,4 +1,4 @@
-﻿Feature: OrangeHRM Login feature
+﻿Feature:Login feature
   As a user of OrangeHRM system
   I want to be able to login to the application
   So that I can access the HR management features
